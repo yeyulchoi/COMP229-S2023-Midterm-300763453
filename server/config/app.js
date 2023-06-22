@@ -1,3 +1,12 @@
+/*
+  File: app.js
+  Author: Yeyul Choi
+  Student ID: 300763453
+  Mid Term TEST
+
+  Description: Mid test for Comp229 Mid Term. regarding Add Edit delete  & use of Atlas
+*/
+
 // moddules for node and express
 let createError = require('http-errors');
 let express = require('express');
@@ -18,15 +27,7 @@ mongoDB.once('open', ()=> {
   console.log("Connected to MongoDB...");
 });
 
-/*
-  File: app.js
-  Author: Yeyul Choi
-  Student ID: 300763453
-  Mid Term TEST
 
-  Description: This JavaScript file contains the main logic for the My Bookstore web application.
-  It handles server setup, routing, database connections, and other necessary operations.
-*/
 
 
 // define routers
