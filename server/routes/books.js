@@ -136,7 +136,27 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    
+    let bookId = req.params.id;
+
+    // Check if the bookId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(bookId)) {
+      return res.status(400).send('Invalid book ID');
+    }
+  
+    // Find the book by its ID and remove it
+    book.findByIdAndRemove(bookId, (err, deletedBook) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('An error occurred while deleting the book');
+      }
+  
+      if (!deletedBook) {
+        return res.status(404).send('Book not found');
+      }
+  
+      // Redirect to the books list page after successful deletion
+      res.redirect('/books');
+    }); 
    
   });
 
